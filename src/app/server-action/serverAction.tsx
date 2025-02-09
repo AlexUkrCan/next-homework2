@@ -11,5 +11,6 @@ export const saveAction= async (formData:FormData)=>{
 
     const brandValue = formData.get('brand');
     db.prepare('insert into meals(brand) values(?)')
-        .run(brandValue)
+        .run(brandValue);
+    revalidatePath('/');
 }
